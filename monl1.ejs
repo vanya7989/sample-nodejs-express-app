@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workouts</title>
+    <style>
+        body{
+
+background-color: rgb(91, 85, 85);
+display: flex;
+align-items: center;
+justify-items: center;
+flex-direction: column;
+}
+.mbo{
+
+width:1100px;
+height:1300px;
+background-color:rgb(38, 38, 38);
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ma{
+ display: flex;
+ align-items: center;
+ justify-items: center;
+ flex-direction: column;
+
+
+ }
+ img{
+    height:450px;
+    width:450px;
+ }
+ #head{
+    width:800px;
+    height:50px;
+    color: white;
+    font-size: 40px;
+    padding-bottom: 2px;
+    border-bottom: 7px solid orange;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+ }
+ #textContent{
+    width:700px;
+    height:220px;
+    color: white;
+    font-size:22px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #steps{
+    width:700px;
+    height:170px;
+    color: white;
+    font-size:22px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+ }
+ .stp{
+    width: 700px;
+    height:50px;
+    font-size:28px;
+    color: white;
+    margin-top: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold ;
+ }
+    </style>
+</head>
+<body><div class="mbo ma">
+    <p id="head">Default </p>
+    <p id="textContent">Default Content</p>
+    <img id="imageDisplay" src="" alt="Image Display">
+    <div class="stp"><P> STEPS TO DO:</P></div>
+    <p id="steps">steps</p>
+    </div>
+ 
+   
+    
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get the value of the 'image' and 'content' parameters from the URL
+        const imageParameter = getUrlParameter('image');
+        const contentParameter = getUrlParameter('content');
+        const contentParameter2 = getUrlParameter('head');
+        const contentParameter3 = getUrlParameter('steps');
+
+        // Get references to the image and text content elements
+        const imageDisplay = document.getElementById('imageDisplay');
+        const textContent = document.getElementById('textContent');
+        const head= document.getElementById('head');
+        const steps= document.getElementById('steps');
+
+        // Define the mapping of parameters to image sources
+        const imageSources = {
+            image1: 'https://fitnessprogramer.com/wp-content/uploads/2023/10/Dumbbell-Push-Press.gif',
+image2: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lateral-Raise.gif',
+image3: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Shoulder-Press.gif',
+image4: 'https://fitnessprogramer.com/wp-content/uploads/2021/07/Barbell-Standing-Military-Press.gif',
+image5: 'https://fitnessprogramer.com/wp-content/uploads/2021/08/Two-Arm-Dumbbell-Front-Raise.gif',
+image6: 'https://fitnessprogramer.com/wp-content/uploads/2023/10/Seated-Zottman-Curl.gif',
+image7: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Dumbbell-Wrist-Curl.gif',
+imaget1: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif',
+imaget2: 'https://fitnessprogramer.com/wp-content/uploads/2023/06/Incline-Chest-Fly-Machine.gif',
+imaget3: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Fly.gif',
+imaget4: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Press-1.gif',
+imaget5: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Kickback.gif',
+imaget6: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Bench-Dips.gif',
+imaget7: 'https://fitnessprogramer.com/wp-content/uploads/2021/04/One-Arm-Lying-Triceps-Extension.gif',
+imagew1: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Pull-up.gif',
+imagew2: 'https://fitnessprogramer.com/wp-content/uploads/2021/08/Cable-Rear-Pulldown.gif',
+imagew3: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif',
+imagew4: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif',
+imagew5: 'https://fitnessprogramer.com/wp-content/uploads/2022/04/Double-Arm-Dumbbell-Curl.gif',
+imagew6: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Concentration-Curl.gif',
+imagew7: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif',
+imageh1: 'https://fitnessprogramer.com/wp-content/uploads/2023/09/dumbbell-lunges.gif',
+imageh2: 'https://fitnessprogramer.com/wp-content/uploads/2023/09/Dumbbell-Squat.gif',
+imageh3: 'https://fitnessprogramer.com/wp-content/uploads/2023/09/dumbbell-deadlifts.gif',
+imageh4: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/BARBELL-SQUAT.gif',
+imageh5: 'https://fitnessprogramer.com/wp-content/uploads/2022/07/Cross-Crunch.gif',
+imageh6: 'https://fitnessprogramer.com/wp-content/uploads/2015/11/Crunch.gif',
+imageh7: 'https://fitnessprogramer.com/wp-content/uploads/2022/07/Leg-Raise-Dragon-Flag.gif'
+
+
+
+        };
+
+        // Define the mapping of parameters to content
+        const contentMap1 = {
+          
+            'head1': 'DUMBELL PUSH PRESS',
+'head2': 'DUMBELL LATERAL RAISE',
+'head3': 'DUMBELL SHOULDER PRESS',
+'head4': 'BARBELL STANDING MILITARY PRESS',
+'head5': 'TWO ARM DUMBELL FRONT RAISE',
+'head6': 'SEATED ZOTTMAN CURL',
+'head7': 'DUMBELL WRIST CURL',
+'headt1': 'BARBELL BENCH PRESS',
+'headt2': 'INCLINE CHEST FLY MACHINE',
+'headt3': 'DUMBBELL FLY',
+'headt4': 'DUMBBELL PRESS 1',
+'headt5': 'DUMBBELL KICKBACK',
+'headt6': 'BENCH DIPS',
+'headt7': 'ONE ARM LYING TRICEPS EXTENSION',
+'headw1': 'PULL UP',
+'headw2': 'CABLE REAR PULLDOWN',
+'headw3': 'LAT PULLDOWN',
+'headw4': 'BARBELL BENT OVER ROW',
+'headw5': 'DOUBLE ARM DUMBBELL CURL',
+'headw6': 'CONCENTRATION CURL',
+'headw7': 'HAMMER CURL',
+'headh1': 'DUMBBELL LUNGES',
+'headh2': 'DUMBBELL SQUAT',
+'headh3': 'DUMBBELL DEADLIFTS',
+'headh4': 'BARBELL SQUAT',
+'headh5': 'CROSS CRUNCH',
+'headh6': 'CRUNCH',
+'headh7': 'LEG RAISE DRAGON FLAG',
+
+
+// Replace with the actual content for parameter "content2"
+        };
+        const contentMap = {
+            'content1': 'The dumbbell push press is a compound strength and power exercise that targets the shoulders, triceps, and upper body while also engaging the core and lower body for stability and support. It is often included in strength training and weightlifting routines to develop shoulder strength and explosiveness. Here’s how to perform the dumbbell push press:',
+'content2': 'The dumbbell lateral raise is an exercise that primarily targets the lateral deltoids, the muscles on the sides of the shoulders. It is an effective isolation exercise for developing shoulder strength, stability, and aesthetics.Balanced shoulder development can help create a proportionate and visually appealing physique. To achieve a well-rounded upper body workout, it’s recommended to combine the dumbbell lateral raise with exercises that target other shoulder muscles, such as the front deltoids (e.g., front raises) and rear deltoids (e.g., bent-over lateral raises).',
+'content3': 'The dumbbell shoulder press, also known as the dumbbell overhead press, is an exercise that targets the muscles of the shoulders and upper body. It involves lifting a pair of dumbbells from shoulder level to an overhead position, using the shoulders and arms.The dumbbell shoulder press targets the shoulder muscles, specifically the front deltoids. Dumbbells are easily accessible and can be used in various settings, including home workouts and gym environments.',
+'content4': 'The barbell military press, also known as the standing barbell shoulder press or overhead press, is a popular strength training exercise that primarily targets the muscles of the shoulders, but also engages the triceps and upper back muscles. The exercise involves standing with your feet shoulder-width apart, grasping a barbell with a grip slightly wider than shoulder-width, and pressing the barbell overhead in a vertical plane until your arms are fully extended.',
+'content5': 'The Dumbbell front raise is a isole exercise that targets the fronts and sides of the shoulders. Suitable for all levels, this shoulder flexion exercise is a good option for building strength, improving shoulder mobility and shaping your shoulder heads.',
+'content6': 'The seated Zottman curl is a variation of the dumbbell curl exercise that targets the biceps brachii, brachialis, and forearms. The seated position helps stabilize your body and isolate the muscles being worked on. This exercise targets both the biceps during the supination phase and the forearm muscles (especially the brachioradialis) during the pronation phase, providing a more comprehensive arm workout.',
+'content7': 'It typically consists of a cylindrical rod or tube with a rope or handle attached to it, and a weight plate or other resistance attached to the end of the rope. The user holds the wrist roller with both hands and rolls the weight up and down using only their wrists, engaging the muscles of the forearm and hand.',
+'contentt1': 'The bench press is a popular strength training exercise that primarily targets the chest muscles (pectoralis major and minor). The exercise can be done with various grips and angles to target different areas of the chest and can be performed with different variations such as incline, decline or flat bench. It is a fundamental exercise in bodybuilding, powerlifting, and general fitness training.',
+'contentt2': 'The machine acts as a stabilizer here, emphasizing the pectoralis major muscle of the chest and the pectoralis minor muscle just below it. This helps reduce the risk of injury compared to other chest exercises that require free weights. It will also help you build fully defined pectoral muscles, thanks to the combination of thrust and compression',
+'contentt3': 'Dumbbell fly exercise targets the sternal heads of your pectoralis major muscles, which are found in your chest, but also strengthens your triceps, deltoids, biceps, wrist flexors and brachialis muscles.Dumbbell fly exercise will help you build fully defined pectorals. It is one of the best exercises you should do If you want a defined and more shred chest muscle.',
+'contentt4': 'The decline dumbbell press is a staple strength exercise that has benefits for lower chest muscle and desired defined pecs. The definition in the lower region is preferred to distinguish between your chest and abdominal muscles.',
+'contentt5': 'The dumbbell kickback is a popular strength training exercise that targets the triceps muscles in the back of your upper arms. It helps strengthen and tone the triceps, contributing to overall arm strength and aesthetics.Among the exercises that work the arm muscles, kickback and its variations are very effective. You can easily apply these exercises with dumbbells, cables or resistance bands.',
+'contentt6': 'Bench dips are a compound exercise as they worked multiple muscle groups simultaneously. Although this bodyweight exercise mainly targets the triceps, it also hits your chest and front of your shoulder.Bench dips are a closed kinetic chain exercise and express that you do the movements around a fixed point. It increases compression force on your joints thereby improving stability.',
+'contentt7': 'Dumbbell lying triceps extension is a single joint isolating exercise that provides strength and muscle development. It is a effective exercise to develop the tricep muscle. Additionally, you can use this movement to correct symmetry issues. (for example, if one arm is smaller and weaker than the other)',
+'contentw1': 'When it comes to compound exercises, one of the best exercises that comes to mind is probably the pull-up movement. Pull-up is a closed-chain an exercise that works almost all of the muscle groups on the upper body and provides both hypertrophy and strength at body weight.It strengthens the back and wing muscles. The focus of the pull-ups exercise is on the back muscles. It is one of the most effective exercises to develop and strengthen the back and wing muscles.',
+'contentw2': 'Cable Rear Lat Pulldown is one of the most popular exercises used to strengthen the back muscles. Pulldown V-Taper is among the movements that allow you to reach the image. It provides interaction in Levator skapula and teres major muscle groups for the development of the rear shoulder and wing muscles. In this way, you can create a wider back, wing and shoulder structure.',
+'contentw3': 'The lat pulldown is a pulling exercise that primarily targets the latissimus dorsi muscles (commonly known as “lats”) in your back. It involves pulling a cable bar or handle down towards your chest while seated on a machine specifically designed for this exercise. The lat pulldown is typically performed with a wide grip, but can also be done with a narrow grip or underhand grip to target different muscle groups in the back and arms. It is a popular exercise for building upper body strength and improving posture.',
+'contentw4': 'The Barbell Bent Over Row is a compound weightlifting exercise that primarily targets the muscles of the upper back, including the lats (latissimus dorsi), rhomboids, and traps, as well as the biceps and rear deltoids. It also engages the core muscles for stability. This exercise is commonly used to build strength and muscle mass in the back and arms.',
+'contentw5': 'The dumbbell row is a effective exercise to strengthen and develop the musculature of the back. The one-arm dumbbell row is a unilateral exercise that builds the strength and size of the latissimus dorsi and improves the overall function of the shoulder joint. Training one arm at a time is the best way to ensure optimal focus on the target muscle, enhance fiber recruitment and overcome strength imbalances between the sides of your body.',
+'contentw6': 'Concentration curls are a type of strength training exercise that primarily targets the brachialis and biceps muscles of the arms. When performing a concentration curl unilaterally, you are able to focus more specifically on each arm, allowing for greater muscle activation and development. This can help to address muscle imbalances between the left and right sides of the body, which can be common due to dominant hand use or previous injuries.',
+'contentw7': 'A hammer curl is a strength training exercise that primarily targets the biceps muscles in the upper arm. It is performed by holding a weight in each hand with a neutral grip, which means the palms of the hands are facing each other, and then curling the weights towards the shoulders. The neutral grip targets the brachioradialis muscle, which is located on the outer forearm and assists in flexing the elbow joint.The hammer curl can be performed using a variety of equipment, including dumbbells, kettlebells, or resistance bands. It is a versatile exercise that can be incorporated into a workout routine to help build overall arm strength and size.',
+'contenth1': 'Dumbbell walking lunges are a compound exercise that engages multiple muscle groups simultaneously. They combine elements of both strength and cardio training, allowing you to get a full-body workout in less time. Whether you’re looking to improve your leg strength, overall fitness, or body composition, incorporating dumbbell walking lunges into your fitness routine can be a valuable addition.',
+'contenth2': 'Dumbbell squats are a fundamental strength training exercise that can help you build powerful lower body muscles and improve overall fitness. They are a versatile alternative to barbell squats, offering the advantage of working each leg independently and allowing for a greater range of motion.Begin the movement by pushing your hips back, as if you’re sitting down into a chair. Keep your knees in line with your toes and allow them to bend as you lower yourself. It’s important to maintain a neutral spine throughout the motion.',
+'contenth3': 'The dumbbell deadlift is a compound strength exercise that primarily targets the muscles in your lower back, glutes, hamstrings, and quadriceps. It is similar to the traditional barbell deadlift but uses dumbbells instead of a barbell. The dumbbell deadlift is a versatile exercise that can be incorporated into a full-body workout or lower body strength routine. It helps develop functional strength and can be beneficial for athletes, powerlifters, and anyone looking to improve their overall fitness.',
+'contenth4': 'The barbell squat is a strength training exercise that targets the muscles of the lower body, particularly the quadriceps, hamstrings, and glutes. It is a compound exercise, meaning it works multiple muscle groups simultaneously. The exercise is performed using a barbell, which is a long, straight bar that is weighted with plates.As with any strength training exercise, it’s also important to start with a weight that you can comfortably lift and gradually increase the weight over time as you become stronger. An incorrect squats technique can cause injuries. For this reason, it is recommended that those starting to squats for the first time should start with body weight.',
+'contenth5': 'The cross crunches is a popular abdominal exercise that targets the obliques and rectus abdominis.The twisting motion involved in Cross Crunches helps activate and strengthen the oblique muscles, which are responsible for rotating and stabilizing the torso.The rotational movement of Cross Crunches enhances flexibility and mobility in the spine, particularly the lower back. Regularly incorporating Cross Crunches into your workout routine can contribute to developing more defined abdominal muscles, especially the rectus abdominis.',
+'contenth6': 'Crunch movement is one of the most basic exercises designed to strengthen the core muscles of the body. Exercise helps to strengthen core muscles, improve posture, and increase muscle mobility and flexibility.Improves six pack muscles: When crunch exercise is done, the rectus abdominus and oblique muscles are tightened, so the upper abdominal muscles and six pack muscles develop.',
+'contenth7': 'Leg raise is one of the most effective exercises for the lower abdominal muscles. Although this exercise targets the rectus abdominus and oblique muscles, it is particularly useful for burning and tightening the lower fat.Continue the movement until your feet are as near to the floor as you can get, maintaining a neutral back. Hold this position briefly, then slowly lift your legs back to the start position, with a controlled, smooth motion. Avoid lifting your lower back as you repeat. ',
+
+ // Replace with the actual content for parameter "content1"
+           
+        };
+        const contentMap2 = {
+            'steps1': 'To perform a dumbbell shoulder push press in three steps: 1. Stand with feet shoulder-width apart, hold a dumbbell in each hand at shoulder height, and maintain good posture. 2. Start by slightly bending your knees, explosively extend your hips and knees while pushing the dumbbells overhead, using your legs for power. 3. Lower the dumbbells under control, bending your elbows, and then repeat. Keep your core engaged, use proper form, and choose an appropriate weight to work your shoulder muscles effectively and avoid injury in this compound exercise.',
+'steps2': 'The dumbbell lateral raise is an isolation exercise that specifically targets the lateral deltoids, helping to create width and definition in the shoulders. Stand with a dumbbell in each hand at your sides, palms facing your thighs. Maintain a slight bend in your elbows and lift the dumbbells out to your sides until your arms are parallel to the ground. Focus on the shoulders doing the work, not your wrists or back. Avoid using momentum; control the weights both on the way up and down. This exercise is excellent for enhancing shoulder aesthetics and can be a key component of any shoulder workout routine.',
+'steps3': 'The dumbbell shoulder press is a fundamental upper body exercise that primarily targets the deltoid muscles. Sit on a sturdy bench with a dumbbell in each hand at shoulder height, palms facing forward. Press the dumbbells overhead, fully extending your arms while keeping your core engaged and back straight. Lower the dumbbells back to shoulder height, feeling a stretch in your shoulders, and then press them back up. Focus on a controlled motion to engage the muscles effectively. This exercise can help increase shoulder strength and stability, making it essential for overall upper body development.',
+'steps4': 'The barbell standing military press is a classic compound exercise that targets the shoulders, triceps, and upper back muscles. Start by standing with your feet shoulder-width apart and grip the barbell with hands slightly wider than shoulder-width. Rest the barbell on your upper chest. Press the barbell overhead by extending your arms fully, then lower it back to your chest. Maintain proper posture throughout, ensuring your back remains straight and your core is engaged. This exercise builds both muscle mass and strength, making it a staple in many strength training programs.',
+'steps5': 'The two-arm dumbbell front raise isolates the anterior deltoids, the front part of your shoulder muscles. Hold a dumbbell in each hand with palms facing down, arms fully extended in front of you. Lift the dumbbells until they are parallel to the ground, then lower them back down under control. Keep a slight bend in your elbows and avoid swinging your body. This exercise enhances shoulder definition and can be particularly useful for individuals aiming to achieve well-rounded shoulder development.',
+'steps6': 'The seated Zottman curl is a versatile arm exercise that targets both the biceps and forearms. Sit on a bench, holding a dumbbell in each hand with palms facing up. Perform a regular curl by lifting the dumbbells toward your shoulders. At the top of the movement, rotate your wrists, so your palms face down. Slowly lower the dumbbells back to the starting position, then rotate your wrists again to the starting supine (palms up) position. This exercise engages different parts of the arm musculature, providing a comprehensive workout for the arms.',
+'steps7': 'The dumbbell wrist curl is designed to strengthen the forearm muscles, crucial for grip strength and overall arm stability. Sit or kneel, holding a dumbbell in each hand with palms facing up. Rest your forearms on your thighs or a bench, allowing your wrists to hang just beyond your knees or bench edge. Lower the dumbbells down to stretch your forearms, then curl them upward as high as possible, contracting your wrist flexors. Lower the dumbbells back down to stretch your forearm muscles fully. Perform the exercise with controlled movements, focusing on the muscles engagement to improve forearm strength and endurance.',
+'stepst1': 'The barbell bench press is a classic and fundamental exercise that primarily targets the chest muscles while also engaging the shoulders and triceps. Lie on a flat bench with your eyes under the barbell. Place your hands slightly wider than shoulder-width apart on the barbell, palms facing forward. Lift the barbell off the rack and lower it to your chest, then press it back up to the starting position. Keep your feet flat on the floor, back arched slightly, and engage your core muscles for stability. This compound movement is a cornerstone of upper body strength training, promoting chest development and overall muscle mass.',
+'stepst2': 'The incline chest fly machine is an effective isolation exercise that targets the upper and inner chest muscles. Adjust the machines seat and handles so that your arms are at chest height when seated. Sit with your back against the pad, grasp the handles, and bring them together in front of you. Slowly open your arms wide, feeling a stretch in your chest muscles, then bring the handles back together, contracting your chest muscles. Keep your movements controlled and deliberate, focusing on the chest muscles throughout the exercise. Incline chest flies are excellent for developing a well-defined and balanced chest.',
+'stepst3': 'The dumbbell fly is a classic chest exercise that emphasizes the pectoral muscles. Lie on a flat bench with a dumbbell in each hand, arms extended above your chest, and palms facing each other. Lower the dumbbells out to your sides in a wide arc until your chest feels a slight stretch, then bring the weights back up to the starting position. Focus on the chest muscles doing the work and maintain a slight bend in your elbows to prevent stress on your shoulder joints. Dumbbell flies are excellent for achieving a deep stretch and a full range of motion in the chest, promoting muscle growth and definition',
+'stepst4': 'Dumbbell press 1, also known as the floor press, is an effective exercise that targets the chest, triceps, and shoulders. Lie on the floor with a dumbbell in each hand, elbows bent at 90 degrees and your upper arms resting on the ground. Press the dumbbells upward until your arms are fully extended, then lower them back down to the starting position. Keep your core engaged, and maintain a stable, neutral spine throughout the movement. The floor press limits the range of motion, allowing you to focus on the targeted muscles without straining your shoulders, making it an excellent alternative to traditional bench presses.',
+'stepst5': 'The dumbbell kickback is an isolation exercise that targets the triceps muscles. Hold a dumbbell in your right hand and place your left knee and hand on a flat bench. Keep your back parallel to the ground. With your upper arm close to your torso, fully extend your arm behind you, contracting your triceps at the top of the movement. Lower the dumbbell back to the starting position, maintaining control over the weight. Switch sides and repeat the exercise for the left arm. Dumbbell kickbacks effectively isolate the triceps and can help improve the definition and strength of the back of your arms.',
+'stepst6': 'Bench dips are a bodyweight exercise that primarily targets the triceps but also engages the shoulders and chest. Sit on the edge of a flat bench with your hands placed shoulder-width apart, fingers gripping the edge. Walk your feet forward until your knees are at a 90-degree angle. Lower your body by bending your elbows until your upper arms are parallel to the ground, then push back up to the starting position, fully extending your arms. Focus on keeping your back close to the bench and your elbows pointed backward, not outward. Bench dips are an excellent way to strengthen the triceps without the need for additional weights',
+'stepst7': 'The one-arm lying triceps extension, also known as skull crushers, is a potent isolation exercise for the triceps. Lie on a flat bench with a dumbbell in your right hand, arm fully extended toward the ceiling. Lower the dumbbell toward your forehead by bending your elbow, then extend your arm back up, feeling a contraction in your triceps. Keep your upper arm stationary throughout the movement. After completing the set, switch to the left arm. Skull crushers effectively target the triceps and can help improve both size and strength in this muscle group.',
+'stepsw1': 'Pull-ups are a challenging bodyweight exercise that primarily targets the upper back, particularly the latissimus dorsi muscles. Grab an overhead bar with an overhand grip, hands slightly wider than shoulder-width apart. Hang freely with your arms fully extended. Pull your body upward by contracting your back muscles until your chin is above the bar. Lower yourself back down to the starting position with control. Keep your movements smooth and avoid swinging your body. Pull-ups are excellent for building upper back strength and improving overall body control.',
+'stepsw2': 'The cable rear pulldown is an effective exercise for targeting the muscles of the upper back, particularly the rear deltoids and trapezius. Attach a straight bar to the high pulley of a cable machine. Face the machine, grab the bar with an overhand grip, and pull it down to your chest, squeezing your shoulder blades together. Slowly release the bar back to the starting position, feeling a stretch in your back muscles. Cable rear pulldowns help improve posture and contribute to a well-rounded back development.',
+'stepsw3': 'The lat pulldown is a popular machine exercise that targets the latissimus dorsi muscles in the back. Sit at a lat pulldown machine with your thighs secured under the pads. Grab the bar with an overhand grip, slightly wider than shoulder-width apart. Pull the bar down to your chest, then slowly release it back up, feeling the contraction in your lats. Focus on using your back muscles, not your arms, to perform the movement. Lat pulldowns are an effective way to build width and strength in the upper back.',
+'stepsw4': 'The barbell bent over row is a compound exercise that targets the muscles of the upper back, including the latissimus dorsi and the middle trapezius. Stand with your feet shoulder-width apart, holding a barbell with an overhand grip. Bend your knees slightly and hinge forward at your hips while keeping your back straight. Pull the barbell to your lower ribcage, then lower it back down with control. Focus on using your back muscles to perform the movement, and avoid using momentum. Bent over rows are excellent for overall back development and can help improve posture.',
+'stepsw5': 'Double arm dumbbell curls are a classic bicep exercise that targets the muscles of the upper arm. Stand with a dumbbell in each hand, palms facing up. Curl the dumbbells toward your shoulders, then lower them back down with control. Avoid using momentum; focus on squeezing your biceps throughout the movement. Dumbbell curls are effective for building bicep size and strength and are a staple in many arm workout routines.',
+'stepsw6': 'Concentration curls are an isolation exercise that targets the biceps. Sit on a bench, holding a dumbbell in one hand, arm extended straight down between your legs. Curl the dumbbell toward your shoulder, feeling a contraction in your biceps. Lower the dumbbell back down with control. Concentration curls are excellent for focusing on one arm at a time, allowing for a full range of motion and maximizing the bicep muscle engagement. This exercise can help improve bicep peak and definition.',
+'stepsw7': 'Hammer curls are a bicep exercise that also targets the brachialis muscle, helping to add size to your arms. Stand with a dumbbell in each hand, palms facing your thighs. Curl the dumbbells toward your shoulders, keeping your palms facing each other throughout the movement. Lower the dumbbells back down with control. Hammer curls are an excellent variation of traditional bicep curls, providing a different muscle stimulus and promoting balanced arm development.',
+'stepsh1': 'Dumbbell lunges are a compound lower body exercise that targets the quadriceps, hamstrings, and glutes. Hold a dumbbell in each hand at your sides. Take a step forward with your right foot and lower your body until your right thigh is parallel to the ground. Push off your right foot to return to the starting position, then repeat on the left side. Keep your back straight and chest up throughout the movement. Lunges are effective for building leg strength, stability, and muscular endurance.',
+'stepsh2': 'Dumbbell squats are a fundamental lower body exercise that targets the quadriceps, hamstrings, glutes, and calves. Hold a dumbbell in each hand at your sides, feet shoulder-width apart. Lower your body into a squat position by bending your knees and pushing your hips back. Keep your back straight and chest up as you lower yourself, then push through your heels to return to the starting position. Squats are one of the most effective exercises for building leg strength and muscle mass.',
+'stepsh3': 'Dumbbell deadlifts are a compound exercise that targets the hamstrings, glutes, lower and upper back, and core muscles. Hold a dumbbell in each hand in front of your thighs, feet hip-width apart. Hinge at your hips and lower your torso toward the ground while keeping your back straight. Lower the dumbbells as far as your flexibility allows, then return to the starting position by driving through your heels and engaging your glutes. Deadlifts are excellent for building overall body strength and promoting functional movement patterns.',
+'stepsh4': 'The barbell squat is a fundamental compound exercise that targets the quadriceps, hamstrings, glutes, and lower back muscles. Stand with your feet shoulder-width apart, a barbell resting on your upper back. Lower your body into a squat position by bending your knees and pushing your hips back. Keep your back straight and chest up as you lower yourself, then push through your heels to return to the starting position. Squats are a highly effective exercise for building leg strength, muscle mass, and overall lower body power.',
+'stepsh5': 'The cross crunch is an effective abdominal exercise that targets the oblique muscles. Lie on your back with your knees bent and your hands behind your head. Lift your shoulder blades off the ground and twist your torso, bringing your right elbow toward your left knee. Hold the contraction for a moment, then return to the starting position. Repeat the movement on the opposite side, bringing your left elbow toward your right knee. Alternate sides in a controlled manner, focusing on engaging your obliques to perform the movement. Cross crunches are excellent for strengthening the side abdominal muscles and improving core stability.',
+'stepsh6': 'Crunches are a classic abdominal exercise that targets the rectus abdominis, the front part of your abdominal muscles. Lie on your back with your knees bent and your hands behind your head. Lift your shoulder blades off the ground while exhaling, then lower them back down without fully resting on the ground. Focus on using your abdominal muscles to lift your upper body, keeping your neck relaxed. Crunches are effective for building core strength and endurance, contributing to a toned midsection.',
+'stepsh7': 'The leg raise dragon flag is an advanced core exercise that targets the rectus abdominis and requires significant strength and control. Lie on your back on a flat bench, holding the sides of the bench above your head. Lift your legs toward the ceiling, then lower them back down slowly, keeping your body straight and your back pressed against the bench. Stop the movement before your feet touch the ground, then lift your legs back up. Dragon flags are a challenging exercise that helps build exceptional core strength, stability, and body control. Practice proper form and start with easier progressions if youre new to this exercise.'
+// Replace with the actual content for parameter "content1"
+           
+        };
+
+        // Set the image source based on the parameter
+        if (imageSources.hasOwnProperty(imageParameter)) {
+            imageDisplay.src = imageSources[imageParameter];
+        }
+
+        // Set the text content based on the parameter
+        if (contentMap.hasOwnProperty(contentParameter)) {
+            textContent.textContent = contentMap[contentParameter];
+        }
+        if (contentMap1.hasOwnProperty(contentParameter2)) {
+           head.textContent = contentMap1[contentParameter2];
+        }
+        if (contentMap2.hasOwnProperty(contentParameter3)) {
+           steps.textContent = contentMap2[contentParameter3];
+        }
+    </script>
+</body>
+</html>

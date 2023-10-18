@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cardio </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2 (Receiver)</title>
+    <style>
+        body{
+
+background-color: rgb(91, 85, 85);
+display: flex;
+align-items: center;
+justify-items: center;
+flex-direction: column;
+}
+.mbo{
+
+width:1100px;
+height:1500px;
+background-color: rgb(38, 38, 38);
+}
+.ma{
+ display: flex;
+ align-items: center;
+ justify-items: center;
+ flex-direction: column;
+
+
+ }
+ img{
+    height:450px;
+    width:450px;
+ }
+ #head{
+    width:800px;
+    height:50px;
+    color: white;
+    font-size: 40px;
+    padding-bottom: 2px;
+    border-bottom: 7px solid orange;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+ }
+ #textContent{
+    width:700px;
+    height:300px;
+    color: white;
+    font-size:22px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #steps{
+    width:700px;
+    height:170px;
+    color: white;
+    font-size:22px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+ }
+ .stp{
+    width: 700px;
+    height:50px;
+    font-size:28px;
+    color: white;
+    margin-top: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold ;
+ }
+    </style>
+</head>
+<body>
+    <div class="mbo ma">
+        <p id="head">Default </p>
+        <p id="textContent">Default Content</p>
+        <img id="imageDisplay" src="" alt="Image Display">
+        <div class="stp"><P> STEPS TO DO:</P></div>
+        <p id="steps">steps</p>
+        </div>
+ 
+   
+    
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get the value of the 'image' and 'content' parameters from the URL
+        const imageParameter = getUrlParameter('image');
+        const contentParameter = getUrlParameter('content');
+        const contentParameter2 = getUrlParameter('head');
+        const contentParameter3 = getUrlParameter('steps');
+
+        // Get references to the image and text content elements
+        const imageDisplay = document.getElementById('imageDisplay');
+        const textContent = document.getElementById('textContent');
+        const head= document.getElementById('head');
+        const steps= document.getElementById('steps');
+
+        // Define the mapping of parameters to image sources
+        const imageSources = {
+            image1: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Bike.gif',
+image2: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Treadmill-.gif',
+image3: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Incline-Treadmill.gif',
+image4: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Rowing-Machine.gif',
+image5: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Assault-Air-Runner.gif',
+image6: 'https://fitnessprogramer.com/wp-content/uploads/2021/10/Elliptical-Machine.gif',
+image7: 'https://fitnessprogramer.com/wp-content/uploads/2021/09/Elbow-To-Knee-Twists.gif',
+image8: 'https://fitnessprogramer.com/wp-content/uploads/2022/02/Push-up-Toe-Touch.gif',
+image9: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Mountain-climber.gif',
+image10: 'https://fitnessprogramer.com/wp-content/uploads/2021/09/Power-Skips.gif',
+
+
+
+
+        };
+
+        // Define the mapping of parameters to content
+        const contentMap1 = {
+          
+            'head1': 'BIKE',
+'head2': 'TREADMILL',
+'head3': 'INCLINE TREADMILL',
+'head4': 'ROWING MACHINE',
+'head5': 'ASSAULT AIR RUNNER',
+'head6': 'ELLIPTICAL MACHINE',
+'head7': 'ELBOW TO KNEE TWISTS',
+'head8': 'PUSH UP TOE TOUCH',
+'head9': 'MOUNTAIN CLIMBER',
+'head10': 'POWER SKIPS',
+
+
+
+// Replace with the actual content for parameter "content2"
+        };
+        const contentMap = {
+            'content1': 'Biking, whether outdoors or on a stationary bike, offers numerous benefits. It provides an excellent cardiovascular workout, enhancing heart health and improving endurance. Biking is a low-impact exercise, making it gentle on the joints while effectively toning and strengthening the leg muscles. It promotes weight loss by burning calories and can be easily adapted to various fitness levels and goals. Regular biking also helps in reducing stress, boosting mental well-being, and enhancing overall mobility.',
+'content2': 'Treadmill workouts are versatile and convenient. They allow you to control speed, incline, and intensity, making them suitable for beginners to advanced fitness enthusiasts. Treadmill exercises provide effective cardiovascular training, promoting heart health and burning calories for weight management. Walking or running on a treadmill also strengthens leg muscles, improves joint flexibility, and enhances bone density. Treadmill workouts can be customized with different programs, offering a challenging and engaging exercise experience.',
+'content3': 'Incline treadmill workouts elevate the benefits of traditional treadmill exercises. Walking or running uphill engages major muscle groups, intensifying the cardiovascular workout and burning more calories. Incline treadmill training enhances lower body strength, particularly targeting the glutes, hamstrings, and calves. It also improves endurance, simulating real-life uphill challenges. Additionally, incline treadmill workouts provide a low-impact option for individuals with joint issues, allowing them to strengthen muscles and boost cardiovascular health without excessive strain.',
+'content4': 'Rowing machines offer a full-body workout, combining cardiovascular exercise with muscle toning. Rowing engages the legs, core, back, and arms, providing a comprehensive and efficient workout session. It improves cardiovascular endurance, promoting a healthy heart and efficient circulation. Rowing also enhances muscular strength and endurance, particularly in the back, shoulders, and arms. Its a low-impact exercise, reducing the risk of joint injuries, and provides a rhythmic, meditative motion that can be both challenging and enjoyable.',
+'content5': 'The Assault Air Runner is a unique cardio machine that offers a natural running experience. It requires self-propulsion, meaning the users effort determines the speed. This machine challenges cardiovascular endurance, burns calories, and enhances leg strength. The lack of a motor forces users to engage their muscles actively, making it an excellent option for building strength and power in the legs and core. The Assault Air Runner also offers versatility, allowing users to sprint, jog, or walk based on their fitness level and goals.',
+'content6': 'Elliptical machines provide a low-impact, full-body workout. They engage both the upper and lower body muscles, including the arms, chest, back, quadriceps, hamstrings, and glutes. Elliptical workouts improve cardiovascular endurance, enhance muscular strength and endurance, and burn a significant number of calories. The ellipticals smooth motion reduces stress on the joints, making it suitable for individuals with joint problems or those recovering from injuries. Its versatility, allowing for forward and backward motion, offers various workout options, catering to different fitness goals and levels.',
+'content7': 'Elbow to knee twists are effective for strengthening the core muscles and improving flexibility. This exercise engages the oblique muscles, promoting a strong and stable midsection. By combining a twisting motion with a crunch, it targets the abdominal muscles from different angles, leading to better muscle definition. Elbow to knee twists also enhance spinal mobility and posture. Regular practice can help in reducing lower back pain and improving overall balance and coordination.',
+'content8': 'Push up toe touch is a dynamic exercise that combines upper body strength, core stability, and flexibility. It starts with a push-up, which strengthens the chest, shoulders, triceps, and core muscles. The added toe touch engages the abdominal muscles and requires flexibility in the hamstrings and lower back. This exercise challenges the entire body, promoting muscle coordination and balance. Its particularly effective for enhancing core strength and building upper body muscles. Push up toe touch can be modified based on fitness levels, making it accessible to various individuals seeking a full-body workout.',
+'content9': 'Mountain climbers are a high-intensity exercise that targets multiple muscle groups simultaneously. They strengthen the arms, shoulders, chest, core, and legs while providing an intense cardiovascular workout. Mountain climbers improve agility, coordination, and overall body endurance. The exercise also boosts metabolism, aiding in calorie burning and weight management. Mountain climbers can be adjusted to different speeds and variations, allowing for customization based on fitness goals. Their effectiveness in working multiple muscles makes them a popular choice in bodyweight training routines.',
+'content10': 'Power skips are an explosive plyometric exercise that enhances lower body strength, power, and coordination. By engaging the quadriceps, hamstrings, glutes, and calf muscles, power skips improve vertical leap and overall leg explosiveness. They also strengthen the core as it stabilizes the body during the jumping motion. Power skips provide an excellent cardiovascular workout due to their high-intensity nature, helping in calorie burning and improving cardiovascular endurance. This exercise is particularly beneficial for athletes, as it mimics movements used in various sports, enhancing athletic performance and agility.',
+
+ // Replace with the actual content for parameter "content1"
+           
+        };
+        const contentMap2 = {
+            'steps1': 'To perform biking, start by adjusting your outdoor or stationary bike to the appropriate height. Sit on the seat with your feet on the pedals. Hold onto the handlebars and begin pedaling in a smooth, controlled motion. You can vary your speed and resistance based on your fitness level and goals. Keep your back straight and engage your core muscles for stability. Focus on a consistent pedaling rhythm and breathe naturally. Whether cycling outdoors or indoors, maintain proper form and enjoy the ride to experience the cardiovascular and muscle-strengthening benefits.',
+'steps2': 'Begin by stepping onto the treadmill and adjusting the speed and incline settings to your preference. Start walking or jogging at a comfortable pace. Maintain an upright posture, with your shoulders relaxed and arms swinging naturally. Land softly on your feet with each step. To increase intensity, adjust the speed and incline as you progress. Focus on your breathing and stay hydrated. You can incorporate interval training or vary your workout by changing the incline and speed settings, providing a challenging and effective cardio workout.',
+'steps3': 'Incline treadmill workouts involve adjusting the treadmill to an incline position. Begin by walking or running on the inclined surface. The uphill slope engages your leg muscles more intensely, providing a challenging workout. Focus on using your glutes and legs to push against the incline. Maintain proper posture and pay attention to your breathing. Start with a moderate incline and gradually increase it as your strength and endurance improve. Incline treadmill workouts are excellent for building lower body strength and stamina.',
+'steps4': 'To use a rowing machine, sit on the seat with your feet secured in the foot straps. Grab the handle with an overhand grip, keeping your back straight and core engaged. Push through your legs to extend them while simultaneously pulling the handle toward your chest. Lean back slightly and squeeze your shoulder blades together. Reverse the motion by extending your arms, bending your knees, and leaning forward. Focus on a fluid, coordinated movement, engaging both your upper and lower body muscles. Rowing machines provide a full-body workout, enhancing cardiovascular fitness and muscular strength.',
+'steps5': 'The Assault Air Runner is a self-powered treadmill. Begin by stepping onto the machine and start running or jogging. The machines unique design requires you to propel it forward, engaging your leg muscles and cardiovascular system. Use your arms for balance and momentum. You control the speed; the faster you run, the faster the machine moves. Focus on a natural running stride, landing softly on your feet. The Assault Air Runner challenges your cardiorespiratory fitness and leg strength while providing a dynamic and enjoyable workout experience.',
+'steps6': 'Step onto the elliptical machine and grasp the handles. Start pedaling in a smooth, elliptical motion. The machine allows for forward and backward movement, engaging both your upper and lower body muscles. Maintain an upright posture and keep your core muscles engaged. Adjust the resistance level and incline to vary the intensity. Focus on a fluid motion, using your arms and legs simultaneously. Elliptical machines offer a low-impact, full-body workout, enhancing cardiovascular endurance and muscle strength.',
+'steps7': 'To perform elbow to knee twists, lie on your back with your knees bent and hands behind your head. Lift your head, neck, and shoulders off the ground. Simultaneously, bring your right elbow toward your left knee while straightening your right leg. Twist your torso to touch your elbow to your knee. Return to the starting position and repeat on the other side. Alternate sides in a controlled, twisting motion. Engage your core muscles throughout the movement. Elbow to knee twists target the obliques and promote core strength and flexibility.',
+'steps8': 'Start in a push-up position with your hands shoulder-width apart and your body in a straight line from head to heels. Lower your chest toward the ground in a push-up. As you push back up, lift your right hand off the ground and touch your left toe with your fingertips. Return to the push-up position and perform another push-up. This time, lift your left hand and touch your right toe. Continue alternating between push-ups and toe touches in a fluid, controlled motion. This exercise engages the chest, arms, core, and promotes flexibility.',
+'steps9': 'Begin in a plank position with your hands directly under your shoulders and your body in a straight line from head to heels. Engage your core muscles and drive your right knee toward your chest. Quickly switch and bring your right leg back as you drive your left knee toward your chest. Continue alternating legs in a running motion while maintaining the plank position. Mountain climbers provide an intense cardiovascular workout, engaging the core, arms, and legs. Focus on a rapid but controlled movement, keeping your body stable throughout.',
+'steps10': 'To perform power skips, stand with your feet hip-width apart. Jump explosively off your right foot while driving your left knee upward. At the same time, swing your right arm forward and your left arm backward. Land softly on your right foot and immediately jump again, this time with your left foot driving upward and your arms switching positions. Continue alternating power skips, focusing on height and explosive power. Power skips engage the leg muscles, particularly the quadriceps and calves, while enhancing coordination and agility. Emphasize a strong push-off with each jump for maximum benefit.',
+
+// Replace with the actual content for parameter "content1"
+           
+        };
+
+        // Set the image source based on the parameter
+        if (imageSources.hasOwnProperty(imageParameter)) {
+            imageDisplay.src = imageSources[imageParameter];
+        }
+
+        // Set the text content based on the parameter
+        if (contentMap.hasOwnProperty(contentParameter)) {
+            textContent.textContent = contentMap[contentParameter];
+        }
+        if (contentMap1.hasOwnProperty(contentParameter2)) {
+           head.textContent = contentMap1[contentParameter2];
+        }
+        if (contentMap2.hasOwnProperty(contentParameter3)) {
+           steps.textContent = contentMap2[contentParameter3];
+        }
+    </script>
+</body>
+</html>

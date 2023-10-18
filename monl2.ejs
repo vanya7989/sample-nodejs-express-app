@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cardio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2 (Receiver)</title>
+    <style>
+        body{
+
+background-color: rgb(91, 85, 85);
+display: flex;
+align-items: center;
+justify-items: center;
+flex-direction: column;
+}
+.mbo{
+
+width:1100px;
+height:1500px;
+background-color: rgb(38, 38, 38);
+}
+.ma{
+ display: flex;
+ align-items: center;
+ justify-items: center;
+ flex-direction: column;
+
+
+ }
+ img{
+    height:450px;
+    width:450px;
+ }
+ #head{
+    width:800px;
+    height:50px;
+    color: white;
+    font-size: 40px;
+    padding-bottom: 2px;
+    border-bottom: 7px solid orange;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+ }
+ #textContent{
+    width:700px;
+    height:300px;
+    color: white;
+    font-size:22px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #steps{
+    width:700px;
+    height:170px;
+    color: white;
+    font-size:22px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+ }
+ .stp{
+    width: 700px;
+    height:50px;
+    font-size:28px;
+    color: white;
+    margin-top: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold ;
+ }
+    </style>
+</head>
+<body>
+    <div class="mbo ma">
+        <p id="head">Default </p>
+        <p id="textContent">Default Content</p>
+        <img id="imageDisplay" src="" alt="Image Display">
+        <div class="stp"><P> STEPS TO DO:</P></div>
+        <p id="steps">steps</p>
+        </div>
+ 
+   
+    
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get the value of the 'image' and 'content' parameters from the URL
+        const imageParameter = getUrlParameter('image');
+        const contentParameter = getUrlParameter('content');
+        const contentParameter2 = getUrlParameter('head');
+        const contentParameter3 = getUrlParameter('steps');
+
+        // Get references to the image and text content elements
+        const imageDisplay = document.getElementById('imageDisplay');
+        const textContent = document.getElementById('textContent');
+        const head= document.getElementById('head');
+        const steps= document.getElementById('steps');
+
+        // Define the mapping of parameters to image sources
+        const imageSources = {
+            image1: 'https://fitnessprogramer.com/wp-content/uploads/2023/09/Depth-Jump-to-Hurdle-Hop.gif',
+image2: 'https://fitnessprogramer.com/wp-content/uploads/2023/09/power-lunge.gif',
+image3: 'https://fitnessprogramer.com/wp-content/uploads/2023/09/shadow-boxing-workout.gif',
+image4: 'https://fitnessprogramer.com/wp-content/uploads/2022/02/Riding-Outdoor-Bicycle.gif',
+image5: 'https://fitnessprogramer.com/wp-content/uploads/2021/09/Walking.gif',
+image6: 'https://fitnessprogramer.com/wp-content/uploads/2021/09/Briskly-Walking.gif',
+image7: 'https://fitnessprogramer.com/wp-content/uploads/2023/06/sprint.gif',
+image8: 'https://fitnessprogramer.com/wp-content/uploads/2021/10/Walk-Wave-Machine.gif',
+image9: 'https://fitnessprogramer.com/wp-content/uploads/2021/06/Incline-Treadmill.gif',
+image10: 'https://fitnessprogramer.com/wp-content/uploads/2021/10/Elliptical-Machine.gif',
+
+
+
+
+        };
+
+        // Define the mapping of parameters to content
+        const contentMap1 = {
+          
+            'head1': 'DEPTH JUMP TO HURDLE HOP',
+'head2': 'POWER LUNGE',
+'head3': 'SHADOW BOXING',
+'head4': 'RIDING OUTDOOR BICYCLE',
+'head5': 'WALKING',
+'head6': 'BRISKLY WALKING',
+'head7': 'SPRINT',
+'head8': 'WALK WAVE MACHINE',
+'head9': 'INCLINE TREADMILL',
+'head10': 'ELLIPTICAL MACHINE',
+
+
+
+// Replace with the actual content for parameter "content2"
+        };
+        const contentMap = {
+            'content1': ' Depth jump to hurdle hop is a powerful plyometric exercise that enhances explosive strength and agility. By rapidly contracting and extending your muscles, this exercise helps improve muscle power, speed, and coordination. It also contributes to better athletic performance and can be particularly beneficial for athletes involved in sports requiring quick, explosive movements like basketball, volleyball, or sprinting.',
+'content2': 'Power lunges are excellent for strengthening the lower body muscles, including the quadriceps, hamstrings, and glutes. This exercise helps improve leg stability, balance, and flexibility. Power lunges are also effective in enhancing cardiovascular endurance when performed in a high-intensity interval manner, making them a versatile choice for both strength and cardio workouts.',
+'content3': 'Shadow boxing is a dynamic cardiovascular exercise that not only burns calories but also improves overall body coordination and rhythm. It engages multiple muscle groups, including the core, shoulders, and arms. Additionally, shadow boxing enhances mental focus and agility, making it a great workout for both the body and the mind. It can be tailored to different fitness levels, making it accessible to beginners while still challenging for advanced practitioners.',
+'content4': 'Riding an outdoor bicycle provides an excellent cardiovascular workout while being gentle on the joints. It strengthens the leg muscles, especially the quadriceps and calves, and improves overall endurance. Outdoor cycling allows you to enjoy nature and fresh air, making it a mentally refreshing activity as well. It is an effective way to burn calories, promote cardiovascular health, and boost mood and energy levels.',
+'content5': 'Walking is a low-impact exercise that offers numerous health benefits. It is accessible to people of all fitness levels and ages. Regular walking strengthens the muscles, improves joint flexibility, and boosts cardiovascular health. It also helps in maintaining a healthy weight, reducing the risk of chronic diseases, and enhancing overall well-being. Walking outdoors can further provide a mental health boost by connecting you with nature and reducing stress.',
+'content6': 'Brisk walking intensifies the benefits of walking by increasing the pace and heart rate. This moderate-intensity aerobic exercise elevates cardiovascular fitness, burns calories, and helps in weight management. Brisk walking targets the major muscle groups, including the legs, buttocks, and core. It enhances lung capacity, promotes circulation, and supports overall cardiovascular health. Regular brisk walking, when combined with a balanced diet, contributes significantly to maintaining a healthy lifestyle.',
+'content7': 'Sprinting is a high-intensity cardiovascular exercise that rapidly burns calories and boosts metabolism. It strengthens the leg muscles, including the quadriceps, hamstrings, and calves, and engages the core muscles for stability. Sprinting also improves cardiovascular endurance, agility, and speed. High-intensity interval sprinting, where short bursts of maximum effort are alternated with periods of rest or low-intensity activity, is particularly effective for fat loss and improving overall athletic performance.',
+'content8': 'Walking on a wave machine provides a unique and challenging workout experience. The wave-like motion engages the leg muscles, core, and stabilizing muscles, offering a comprehensive lower body workout. It improves balance, coordination, and cardiovascular endurance. The constant motion requires continuous muscle engagement, enhancing muscular endurance and toning the lower body. Walking on a wave machine is low-impact, making it suitable for individuals with joint issues or those recovering from injuries.',
+'content9':  'Incline treadmill walking or running adds an extra challenge to your cardiovascular workout. Walking or running uphill targets the glutes, hamstrings, and calves more intensely than flat-surface exercise. It also engages the core muscles as your body works to maintain balance on the incline. Incline treadmill workouts help burn more calories compared to walking on a flat surface and enhance lower body strength and endurance. It is an excellent option for individuals looking to intensify their cardio routine and tone their lower body muscles simultaneously.',
+'content10': 'The elliptical machine provides a low-impact, full-body workout. It engages both the upper and lower body muscle groups, including the arms, chest, back, quadriceps, hamstrings, and glutes. This low-impact nature makes it suitable for individuals with joint problems or those recovering from injuries. Elliptical workouts improve cardiovascular endurance, enhance muscular strength and endurance, and burn a significant number of calories. The ability to adjust the resistance level and incline allows for varied intensity levels, catering to different fitness goals and levels of fitness.',
+
+ // Replace with the actual content for parameter "content1"
+           
+        };
+        const contentMap2 = {
+            'steps1': ' To perform a depth jump to hurdle hop, start by standing on a box or an elevated surface. Step off the box, landing softly on the balls of your feet with your knees slightly bent. Immediately upon landing, explosively jump forward over a hurdle or any obstacle in front of you. Swing your arms for momentum and land softly on the other side of the hurdle. As soon as you land, go into another depth jump by stepping off the ground and repeating the process. Focus on your form, ensuring your knees are aligned with your feet to prevent injury. Perform this exercise in a controlled manner, emphasizing explosive power and quick movements.',
+'steps2': 'Begin by standing with your feet hip-width apart. Take a step forward with your right foot, lowering your body until your right thigh is parallel to the ground, forming a 90-degree angle at your knee. Your left knee should hover just above the floor. Push off your right foot to return to the starting position. Repeat on the other side, stepping forward with your left foot. Alternate legs and perform the lunges in a fluid, controlled motion. Engage your core muscles for stability and make sure your front knee does not extend beyond your toes to avoid strain.',
+'steps3': 'Stand with your feet shoulder-width apart and assume a boxing stance. Hold your fists up near your face, elbows bent. Start punching the air with alternating arms, incorporating jabs, crosses, hooks, and uppercuts. Pivot your feet and hips as you punch, engaging your core muscles for power. Move around as you punch, simulating footwork and incorporating defensive moves like ducking and weaving. Keep your movements controlled and focus on your breathing. Shadow boxing can be done for a set duration or combined with other exercises in a high-intensity interval training (HIIT) workout.',
+'steps4': 'Mount your bicycle and start pedaling at a comfortable pace. Adjust the gears based on the terrain and your fitness level. Keep your back straight, shoulders relaxed, and hands on the handlebars. Engage your core muscles for stability. To increase intensity, pedal faster or tackle inclines. Focus on smooth, consistent pedaling and maintain a steady breathing rhythm. Be aware of your surroundings, follow traffic rules, and wear appropriate safety gear, including a helmet. Riding outdoor bicycles offers the flexibility to explore different routes, making your workout both enjoyable and challenging.',
+'steps5': 'Start by standing upright with your shoulders relaxed and your arms hanging naturally by your sides. Take a step forward with your right foot, rolling from heel to toe. Follow with your left foot, continuing the natural rolling motion. Swing your arms gently in rhythm with your steps. Maintain a brisk but comfortable pace, keeping your back straight and chin parallel to the ground. Land softly on your feet and breathe deeply and rhythmically. You can walk outdoors in parks, trails, or neighborhoods, enjoying the fresh air and changing scenery. Wear comfortable walking shoes and, if necessary, use a pedometer to track your steps and progress.',
+'steps6': 'Brisk walking follows the same basic technique as regular walking but at a faster pace. Start with a warm-up by walking at a moderate pace for a few minutes. Then, increase your speed, swinging your arms vigorously and taking larger steps. Focus on covering more ground with each step while maintaining a natural and comfortable stride. Keep your posture upright and engage your core muscles. Aim to walk at a pace that elevates your heart rate and makes you slightly breathless but still able to hold a conversation. Brisk walking can be done on sidewalks, tracks, or even on a treadmill indoors.',
+'steps7': 'Find a flat, open space for sprinting. Begin by warming up with light jogging or dynamic stretches. When youre ready, start sprinting as fast as you can, driving your knees up and pumping your arms vigorously. Focus on short, powerful strides and maintain a strong posture. Sprint for a specific distance or time, aiming for maximum speed. After each sprint, allow yourself to recover by walking or jogging slowly. Focus on your form, ensuring your feet land beneath your body to optimize speed and reduce the risk of injury. Sprinting can be incorporated into interval training routines for an added cardiovascular challenge.',
+'steps8': 'Step onto the wave machine, gripping the handles lightly for balance. Stand with your feet shoulder-width apart. The machine will start to move in a wave-like motion. Begin walking, allowing your feet to follow the natural motion of the machine. Engage your core muscles to maintain balance and stability. Focus on a smooth, controlled movement, keeping your strides consistent. You can adjust the speed and intensity of the wave machine based on your fitness level and goals. Be mindful of your posture and avoid leaning on the handles excessively. Walking on the wave machine provides a unique challenge to your balance and coordination while offering a low-impact cardiovascular workout.',
+'steps9': ' Start by adjusting the treadmill to a slight incline. Step onto the treadmill and begin walking or jogging at a comfortable pace. As you become accustomed to the incline, gradually increase the gradient to intensify the workout. Focus on using your glutes and leg muscles to push against the incline. Maintain a natural arm swing and proper posture, keeping your back straight and shoulders relaxed. Monitor your heart rate and breathing, ensuring youre working within your target intensity zone. To cool down, gradually reduce the incline and pace before stepping off the treadmill. Incline treadmill workouts are effective for building lower body strength and endurance while burning calories.',
+'steps10': 'Step onto the elliptical machine and grasp the handles with a firm but comfortable grip. Stand tall with your feet flat on the pedals. Start pedaling in a smooth, continuous motion, pushing and pulling the handles in sync with your leg movements. Engage your core muscles to maintain stability and support your back. The elliptical allows for forward and backward motion, so vary your stride pattern to target different leg muscles. Adjust the resistance level and incline to increase intensity. Focus on proper form, ensuring your knees are aligned with your feet, and avoid locking your joints. Elliptical workouts can be tailored to your fitness goals, whether its high-intensity intervals or steady-state cardio, providing a full-body, low-impact workout experience.',
+
+// Replace with the actual content for parameter "content1"
+           
+        };
+
+        // Set the image source based on the parameter
+        if (imageSources.hasOwnProperty(imageParameter)) {
+            imageDisplay.src = imageSources[imageParameter];
+        }
+
+        // Set the text content based on the parameter
+        if (contentMap.hasOwnProperty(contentParameter)) {
+            textContent.textContent = contentMap[contentParameter];
+        }
+        if (contentMap1.hasOwnProperty(contentParameter2)) {
+           head.textContent = contentMap1[contentParameter2];
+        }
+        if (contentMap2.hasOwnProperty(contentParameter3)) {
+           steps.textContent = contentMap2[contentParameter3];
+        }
+    </script>
+</body>
+</html>

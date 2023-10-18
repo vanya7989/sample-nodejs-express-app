@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop supplements</title>
+    <link rel="stylesheet" href="addtocart.css">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(95, 94, 94);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        .background-image {
+          
+            width: 1300px;
+            height: 1550px;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(38, 38, 38);;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .header {
+            height: 80px;
+            width: 80%;
+            background-color: rgb(23, 23, 23);
+            border-radius: 3px;
+            margin:10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            color:orange;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        .cart {
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            border-radius: 3px;
+            width: 80px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .fa-solid {
+            color: darkorange;
+        }
+
+        .cart p {
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background-color: darkorange;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            width: 70%;
+            margin-bottom: 30px;
+        }
+
+        #root {
+            width: 60%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .sidebar {
+            width: 40%;
+            border-radius: 5px;
+            background-color: #eee;
+            margin-left: 20px;
+            padding: 15px;
+            background-color: rgb(91, 85, 85);
+            text-align: center;
+        }
+
+        .head {
+            background-color: rgb(23, 23, 23);
+            border-radius: 3px;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0px;
+            padding: 10px 0px;
+            border-top: 1px solid #333;
+            color:white;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space between;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            background-color:rgb(91, 85, 85) ;
+            color: white;
+            font-family: monospace;
+        }
+        .box:hover{
+            border:2px solid orange;
+        }
+
+        .img-box {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .images {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .bottom {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space between;
+            height: 110px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            color: orange;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        button {
+            width: 100%;
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: none;
+            border-radius: 4px;
+            background-color: transparent;
+            padding: 7px 25px;
+            cursor: pointer;
+            color: orange;
+            border:1px solid orange;
+            
+        }
+
+        button:hover {
+            background-color: orange;
+            color:white
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: white;
+            border-bottom: 1px solid #aaa;
+            border-radius: 3px;
+            margin: 10px 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .row-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid orange;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .rowimg {
+            max-width: 43px;
+            max-height: 43px;
+            border-radius: 50%;
+        }
+
+        .fa-trash:hover {
+            cursor: pointer;
+            color: #333;
+        }
+        span{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 9px;
+            color: rgb(199, 199, 199);
+        }
+        .tent{
+            height:500px;
+            width:900px;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .mage{
+            height:300px;
+            width:300px;
+            margin-right: 50px;
+            margin-top: 20px;
+
+        }
+        .f{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .sup{
+            width:700px;
+            height:300px;
+        }
+        .ad{
+            height:250px;
+            width:800px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0009/1943/7372/collections/best-supplement-for-bodybuilding.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="background-image">
+
+<div class="header">
+    <p class="logo">FIT-VISHNU</p>
+    <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+</div>
+<div class="ad"></div>
+<div class="container">
+    <div id="root"></div>
+    <div class="sidebar">
+        <div class="head"><p>My Cart</p></div>
+        <div id="cartItem">Your cart is empty</div>
+        <div class="foot">
+            <h3>Total</h3>
+            <h2 id="total">0.00</h2>
+        </div>
+    </div>
+</div>
+<div class="tent f"><img src="https://media.istockphoto.com/id/539466138/photo/taking-supplements.jpg?s=612x612&w=0&k=20&c=HjymWUl5GgyYLvY5DbpHBcUrSOFy2hZeMMAvomqGPOU= " class="mage"><p class="sup">Dietary supplements, ranging from vitamins and minerals to herbal extracts and protein powders, serve as valuable additions to address nutritional gaps, support specific health goals, and cater to dietary restrictions. While these supplements can enhance overall health and well-being, it's crucial to approach them responsibly. Consulting healthcare professionals before incorporating supplements into one's routine is essential to ensure they are safe and suitable for individual needs. Additionally, supplements should complement, not replace, a balanced diet, emphasizing the importance of whole foods and a healthy lifestyle. Adhering to recommended dosages and choosing high-quality products from reputable brands further ensures their efficacy and safety, making them valuable allies in the pursuit of optimal health and fitness.</p></div>
+</div>
+<script>
+    const product = [
+        {
+            id: 0,
+            image: 'https://cdn.glitch.global/199275b2-286f-4576-8473-74c5c43bb4dd/whey-removebg-preview.png?v=1697102323842',
+            title: 'Whey protein',
+            cont:'Whey protein is a popular dietary supplement among fitness enthusiasts, athletes, and bodybuilders. ',
+            price: 2990,
+        },
+        {
+            id: 1,
+            image: 'https://cdn.glitch.global/199275b2-286f-4576-8473-74c5c43bb4dd/mass.png?v=1697102498672',
+            title: 'Mass gainer',
+            cont:'Mass gainers are specialized supplements designed to help individuals gain weight, specifically muscle mass. ',
+            price: 1399,
+        },
+        {
+            id: 2,
+            image: 'https://cdn.glitch.global/e39684c6-6618-4e6e-8465-7f4c09d81b30/gold-standard-pre-workout--330gr-removebg-preview.png?v=1697219304826',
+            title: 'Pre-Workout',
+            cont:'Pre-workout supplements are a category of dietary supplements designed to boost energy levels.',
+            price: 1299,
+        },
+        {
+            id: 3,
+            image: 'https://cdn.glitch.global/e39684c6-6618-4e6e-8465-7f4c09d81b30/sport-shaker-03-sports-bottle-w7aOVw3-600-removebg-preview.png?v=1697217396115',
+            title: 'Shaker',
+            cont:'Shaker bottles are portable containers designed for easy and efficient mixing of powdered supplements.',
+            price: 299,
+        }
+    ];
+    const categories = [...new Set(product.map((item) =>
+    {
+        return item
+    }))]
+    let i = 0;
+    document.getElementById('root').innerHTML = categories.map((item) =>
+    {
+        var {image, title, price,cont} = item;
+        return (
+            `<div class='box'>
+            <div class='img-box'>
+                <img class='images' src=${image}></img>
+            </div>
+        <div class='bottom'>
+        <p>${title}</p>
+        <span>${cont}</span>
+        <h2>${price}.00</h2>` +
+            "<button onclick='addtocart(" + (i++) + ")'>Add to cart</button>" +
+            `</div>
+        </div>`
+        )
+    }).join('')
+
+    var cart = [];
+
+    function addtocart(a) {
+        cart.push({ ...categories[a] });
+        displaycart();
+    }
+
+    function delElement(a) {
+        cart.splice(a, 1);
+        displaycart();
+    }
+
+    function displaycart() {
+        let j = 0, total = 0;
+        document.getElementById("count").innerHTML = cart.length;
+        if (cart.length == 0) {
+            document.getElementById('cartItem').innerHTML = "Your cart is empty";
+            document.getElementById("total").innerHTML = "0.00";
+        } else {
+            document.getElementById("cartItem").innerHTML = cart.map((items) =>
+            {
+                var {image, title, price} = items;
+                total = total + price;
+                document.getElementById("total").innerHTML = total + ".00";
+                return (
+                    `<div class='cart-item'>
+                <div class='row-img'>
+                    <img class='rowimg' src=${image}>
+                </div>
+                <p style='font-size:12px;'>${title}</p>
+                <h2 style='font-size: 15px;'>${price}.00</h2>` +
+                    "<i class='fa-solid fa-trash' onclick='delElement(" + (j++) + ")'></i></div>"
+                );
+            }).join('');
+        }
+    }
+</script>
+</body>
+</html>
